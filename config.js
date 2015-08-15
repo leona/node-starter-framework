@@ -7,5 +7,15 @@ module.exports = {
     env: 'dev',
     error_msg: {
         404: 'Sorry, but that page doesn\'t exist.'
+    },
+    asset_dirs: {
+        css: {
+            dir: __public + 'css/*.css',
+            build_dir: __public + 'css/build'
+        },
+        js: {
+            dir: __public + 'js/*.js',
+            build_dir: __public + 'js/build'
+        }
     }
 }

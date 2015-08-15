@@ -1,4 +1,4 @@
-var uti = require('../lib/utilities');
+var uti = require(__methods + 'utilities');
 var express = require('express');
 var router = express.Router();
 

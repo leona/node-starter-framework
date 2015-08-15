@@ -13,7 +13,8 @@
     "async": "latest",
     "socket.io": "latest",
     "mustache-express": "latest",
-    "compression": "latest"
-    //"glob": "latest"
+    "compression": "latest",
+    "htmlparser2": "latest",
+    "glob": "latest"
   }
 }

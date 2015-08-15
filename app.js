@@ -3,15 +3,21 @@ var path                    = require('path');
 var favicon                 = require('serve-favicon');
 var cookieParser            = require('cookie-parser');
 var bodyParser              = require('body-parser');
-var config                  = require('./config');
 var mustache_express        = require('mustache-express');
 var compression             = require('compression')
 var app = module.exports    = express();
 
+global.__base       = __dirname + '/';
+global.__methods    = __dirname + '/lib/methods/';
+global.__lib        = __dirname + '/lib/';
+global.__public     = __dirname + '/public/';
+global.__tasks      = __dirname + '/lib/tasks/';
+global.__env        = 'dev';
+var config          = require('./config');
 // Setup tasks/
-require('./lib/tasks/asset_compiler');
-require('./lib/middleware');
-require('./lib/router');
+require(__tasks + 'startup');
+require(__lib + 'middleware');
+require(__lib + 'router');
 
 // Environment variables
 app.engine('mustache', mustache_express('./views/partials', '.mustache'));
@@ -19,11 +25,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'mustache');
 app.set('env', config.env);
 
-app.debug = function(msg) {
-  console.log(msg);
-}
 // Disable caching
-if (app.get('env') == 'dev')
+if (__env == 'dev')
   app.disable('etag');
 
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
