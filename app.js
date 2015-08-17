@@ -13,7 +13,9 @@ global.__lib        = __dirname + '/lib/';
 global.__public     = __dirname + '/public/';
 global.__tasks      = __dirname + '/lib/tasks/';
 global.__env        = 'dev';
+
 var config          = require('./config');
+
 // Setup tasks/
 require(__tasks + 'startup');
 require(__lib + 'middleware');
