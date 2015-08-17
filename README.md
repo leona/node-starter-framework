@@ -1,6 +1,6 @@
 # node-starter-framework
 A nodejs express starter framework that wraps around popular libraries to give a good base point for any web project. 
-<p><Strong>NOTE:</strong>This is in early alpha and not all of the features listed below have been implemented.</p>
+<p><Strong>NOTE:</strong> This is in early alpha and not all of the features listed below have been implemented.</p>
 
 <h3>Features</h3>
 <ul>
