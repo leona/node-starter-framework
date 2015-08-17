@@ -9,7 +9,7 @@ module.exports = {
         404: 'Sorry, but that page doesn\'t exist.'
     },
     asset_dirs: {
-        css: {
+        scss: {
             dir: __public + 'css',
             build_dir: __public + 'css/build'
         },

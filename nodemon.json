@@ -1,0 +1,3 @@
+{   
+    "ignore": ["public/css/build", "public/js/build"] 
+}

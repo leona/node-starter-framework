@@ -1,11 +1,15 @@
 body {
-  padding: 50px;
+  padding: 70px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
-test {
-  
+
+#test {
+  color:red;
+  span {
+    color:blue; 
+  }
 }

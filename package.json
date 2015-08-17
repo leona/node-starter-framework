@@ -15,6 +15,8 @@
     "mustache-express": "latest",
     "compression": "latest",
     "htmlparser2": "latest",
-    "glob": "latest"
+    "glob": "latest",
+    "node-minify": "latest",
+    "node-sass": "latest"
   }
 }
