@@ -10,11 +10,11 @@ module.exports = {
     },
     asset_dirs: {
         css: {
-            dir: __public + 'css/*.css',
+            dir: __public + 'css',
             build_dir: __public + 'css/build'
         },
         js: {
-            dir: __public + 'js/*.js',
+            dir: __public + 'js',
             build_dir: __public + 'js/build'
         }
     }
