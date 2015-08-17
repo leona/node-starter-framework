@@ -8,5 +8,5 @@ A nodejs express starter framework that wraps around popular libraries to give a
   <li>SCSS + JS minfication & concatenation</li>
   <li>Image compression</li>
   <li>GZIP compression</li>
-  <li>Mustach template engine</li>
+  <li>Mustache template engine</li>
 </ul>
