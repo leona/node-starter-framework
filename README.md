@@ -10,7 +10,7 @@ A nodejs express starter framework that wraps around popular libraries to give a
   <li>Simple static subdomain configuration for assets.</li>
   <li>GZIP compression</li>
   <li>Mustache template engine</li>
-  <li>Elegant error pages</li>
+  <li>Elegant error page template with ability to set custom messages per status code.</li>
   <li>jQuery, bootstrap-responsive, normalize.css</li>
   <li>Rate limiting</li>
   <li>HTML5 shim and other IE7, 8 and 9 compatibility scripts</li>
