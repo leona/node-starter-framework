@@ -11,7 +11,7 @@ A nodejs express starter framework that wraps around popular libraries to serve 
   <li>ZLIB output compression</li>
   <li>Mustache template engine</li>
   <li>Elegant error page template with ability to set custom messages per status code.</li>
-  <li>jQuery, bootstrap-responsive, normalize.css</li>
+  <li>jQuery 1.11.3, bootstrap-responsive, normalize.css</li>
   <li>Rate limiting</li>
   <li>HTML5 shim and other IE7, 8 and 9 compatibility scripts</li>
   <li>Base header and footer partials. Meta tags, script/style includes, meta encoding, og tags, twitter cards etc.</li>
