@@ -18,6 +18,7 @@
     "glob": "latest",
     "node-minify": "latest",
     "node-sass": "latest",
-    "imagemin": "latest"
+    "imagemin": "latest",
+    "express-vhost": "latest"
   }
 }

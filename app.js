@@ -12,14 +12,12 @@ global.__methods    = __dirname + '/lib/methods/';
 global.__lib        = __dirname + '/lib/';
 global.__public     = __dirname + '/public/';
 global.__tasks      = __dirname + '/lib/tasks/';
-global.__env        = 'dev';
+global.__env        = 'pro';
 
 var config          = require('./config');
 
 // Setup tasks/
-require(__tasks + 'startup');
 require(__lib + 'middleware');
-require(__lib + 'router');
 
 // Environment variables
 app.engine('mustache', mustache_express('./views/partials', '.mustache'));
@@ -28,21 +26,33 @@ app.set('view engine', 'mustache');
 app.set('env', config.env);
 
 // Disable caching
-if (__env == 'dev')
+if (__env == 'dev') {
   app.disable('etag');
+  app.set('view cache', false);
+  config.max_age = 0;
+} else {
+  app.set('view cache', true);
+}
 
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(compression())
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'), { maxAge: config.max_age }));
+app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// Route images to compressed versions
-if (__env !== 'dev')
-  app.use('/img', express.static(__dirname + '/public/img/build'));
+require(__lib + 'router');
+require(__tasks + 'startup');
+
+// Route assets to compressed versions
+if (__env !== 'dev') {
+  app.use('/img', express.static(__dirname + '/public/img/build', { maxAge: config.max_age }));
+}
+
+app.use('/css', express.static(__dirname + '/public/css/build', { maxAge: config.max_age }));
+app.use('/js', express.static(__dirname + '/public/js/build', { maxAge: config.max_age }));
   
 // Assign public directory
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public', { maxAge: config.max_age }));
 
 
 //Global view variables
