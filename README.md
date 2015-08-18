@@ -16,4 +16,5 @@ A nodejs express starter framework that wraps around popular libraries to serve 
   <li>HTML5 shim and other IE7, 8 and 9 compatibility scripts</li>
   <li>Base header and footer partials. Meta tags, script/style includes, meta encoding, og tags, twitter cards etc.</li>
   <li>Header caching</li>
+  <li>Access logging</li>
 </ul>
