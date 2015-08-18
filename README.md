@@ -8,7 +8,7 @@ A nodejs express starter framework that wraps around popular libraries to give a
   <li>Auto SCSS + JS minfication & concatenation</li>
   <li>Auto Image compressor</li>
   <li>Simple static subdomain configuration for assets.</li>
-  <li>GZIP compression</li>
+  <li>ZLIB output compression</li>
   <li>Mustache template engine</li>
   <li>Elegant error page template with ability to set custom messages per status code.</li>
   <li>jQuery, bootstrap-responsive, normalize.css</li>
