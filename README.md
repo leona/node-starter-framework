@@ -1,5 +1,5 @@
 # node-starter-framework
-A nodejs express starter framework that wraps around popular libraries to serve as a base point for building a performance optimized web application.
+A nodejs express starter framework based off express-generate that wraps around popular libraries to serve as a base point for building a performance optimized web application.
 <p><Strong>NOTE:</strong> This is in early alpha and not all of the features listed below have been implemented.</p>
 
 <h3>Features</h3>
