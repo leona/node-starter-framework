@@ -36,7 +36,14 @@ app.use(compression())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+// Route images to compressed versions
+if (__env !== 'dev')
+  app.use('/img', express.static(__dirname + '/public/img/build'));
+  
+// Assign public directory
+app.use(express.static(__dirname + '/public'));
+
 
 //Global view variables
 app.use(function (req, res, next) {
