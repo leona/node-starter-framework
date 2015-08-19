@@ -10,8 +10,9 @@ var app = module.exports    = express();
 global.__base       = __dirname + '/';
 global.__methods    = __dirname + '/lib/methods/';
 global.__lib        = __dirname + '/lib/';
-global.__public     = __dirname + '/public/';
+global.__public     = __dirname + '/app/public/';
 global.__tasks      = __dirname + '/lib/tasks/';
+global.__app        = __dirname + '/app/';
 global.__env        = 'pro';
 
 var config          = require('./config');
@@ -20,8 +21,8 @@ var config          = require('./config');
 require(__lib + 'middleware');
 
 // Environment variables
-app.engine('mustache', mustache_express('./views/partials', '.mustache'));
-app.set('views', path.join(__dirname, 'views'));
+app.engine('mustache', mustache_express(__app + 'views/partials', '.mustache'));
+app.set('views', path.join(__app, 'views'));
 app.set('view engine', 'mustache');
 app.set('env', config.env);
 
@@ -34,7 +35,7 @@ if (__env == 'dev') {
   app.set('view cache', true);
 }
 
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'), { maxAge: config.max_age }));
+app.use(favicon(__app + 'public/favicon.ico', { maxAge: config.max_age }));
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -45,14 +46,14 @@ require(__tasks + 'startup');
 
 // Route assets to compressed versions
 if (__env !== 'dev') {
-  app.use('/img', express.static(__dirname + '/public/img/build', { maxAge: config.max_age }));
+  app.use('/img', express.static(__app + 'public/img/build', { maxAge: config.max_age }));
 }
 
-app.use('/css', express.static(__dirname + '/public/css/build', { maxAge: config.max_age }));
-app.use('/js', express.static(__dirname + '/public/js/build', { maxAge: config.max_age }));
+app.use('/css', express.static(__app + 'public/css/build', { maxAge: config.max_age }));
+app.use('/js', express.static(__app + 'public/js/build', { maxAge: config.max_age }));
   
 // Assign public directory
-app.use(express.static(__dirname + '/public', { maxAge: config.max_age }));
+app.use(express.static(__app + 'public', { maxAge: config.max_age }));
 
 
 //Global view variables
