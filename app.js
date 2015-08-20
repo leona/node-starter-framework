@@ -1,5 +1,7 @@
 var express                 = require('express');
 var path                    = require('path');
+var fs                      = require('fs');
+var morgan                  = require('morgan');
 var favicon                 = require('serve-favicon');
 var cookieParser            = require('cookie-parser');
 var bodyParser              = require('body-parser');
@@ -35,6 +37,9 @@ if (__env == 'dev') {
   app.set('view cache', true);
 }
 
+var accessLogStream = fs.createWriteStream(__dirname + '/access.log', {flags: 'a'})
+
+app.use(morgan('combined', {stream: accessLogStream}))
 app.use(favicon(__app + 'public/favicon.ico', { maxAge: config.max_age }));
 app.use(compression());
 app.use(bodyParser.json());

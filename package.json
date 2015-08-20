@@ -11,6 +11,7 @@
     "express": "~4.13.1",
     "serve-favicon": "~2.3.0",
     "async": "latest",
+    "morgan": "latest",
     "socket.io": "latest",
     "mustache-express": "latest",
     "compression": "latest",
