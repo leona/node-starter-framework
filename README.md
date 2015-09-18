@@ -17,4 +17,5 @@ A nodejs express starter framework based off express-generate that wraps around 
   <li>Base header and footer partials. Meta tags, script/style includes, meta encoding, og tags, twitter cards etc.</li>
   <li>Header caching</li>
   <li>Access logging</li>
+  <li>Sprite generator</li>
 </ul>
