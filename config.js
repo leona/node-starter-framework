@@ -8,7 +8,9 @@ module.exports = {
         404: 'Sorry, but that page doesn\'t exist.'
     },
     max_age: 2592000000,
+    /*
     asset_host: 'static.example.com:80',
+    */
     asset_exts: ['.jpg', '.png', '.gif', '.css', '.js'],
     asset_dirs: {
         scss: {

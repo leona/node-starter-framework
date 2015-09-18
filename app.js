@@ -5,28 +5,28 @@ var morgan                  = require('morgan');
 var favicon                 = require('serve-favicon');
 var cookieParser            = require('cookie-parser');
 var bodyParser              = require('body-parser');
-var mustache_express        = require('mustache-express');
+var exhbs                   = require('express-handlebars');
 var compression             = require('compression')
 var app = module.exports    = express();
-
+// MIMIC LARAVEL HELPERS LIKE POST->OLD
+// CSRF helpers
 global.__base       = __dirname + '/';
 global.__methods    = __dirname + '/lib/methods/';
 global.__lib        = __dirname + '/lib/';
 global.__public     = __dirname + '/app/public/';
 global.__tasks      = __dirname + '/lib/tasks/';
 global.__app        = __dirname + '/app/';
-global.__env        = 'pro';
+global.__env        = 'dev';
 
 var config          = require('./config');
 
-// Setup tasks/
+// Load global middleware
 require(__lib + 'middleware');
 
-// Environment variables
-app.engine('mustache', mustache_express(__app + 'views/partials', '.mustache'));
+// Set view engine and directory
+app.engine('handlebars', exhbs({defaultLayout: 'main', partialsDir: __app + 'views/partials', layoutsDir: __app + 'views/layouts'}));
+app.set('view engine', 'handlebars');
 app.set('views', path.join(__app, 'views'));
-app.set('view engine', 'mustache');
-app.set('env', config.env);
 
 // Disable caching
 if (__env == 'dev') {

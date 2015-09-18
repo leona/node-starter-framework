@@ -13,13 +13,11 @@
     "async": "latest",
     "morgan": "latest",
     "socket.io": "latest",
-    "mustache-express": "latest",
+    "express-handlebars": "latest",
     "compression": "latest",
-    "htmlparser2": "latest",
     "glob": "latest",
     "node-minify": "latest",
     "node-sass": "latest",
-    "imagemin": "latest",
-    "express-vhost": "latest"
+    "imagemin": "latest"
   }
 }
