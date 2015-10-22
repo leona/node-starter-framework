@@ -18,6 +18,9 @@
     "glob": "latest",
     "node-minify": "latest",
     "node-sass": "latest",
-    "imagemin": "latest"
+    "imagemin": "latest",
+    "require-directory": "latest",
+    "request": "latest",
+    "cookie": "latest"
   }
 }
