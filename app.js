@@ -5,7 +5,7 @@ var morgan                  = require('morgan');
 var favicon                 = require('serve-favicon');
 var cookieParser            = require('cookie-parser');
 var bodyParser              = require('body-parser');
-var exhbs                   = require('express-handlebars');
+var mustacheExpress         = require('mustache-express');
 var compression             = require('compression')
 var app = module.exports    = express();
 // MIMIC LARAVEL HELPERS LIKE POST->OLD
@@ -24,9 +24,9 @@ var config          = require('./config');
 require(__lib + 'middleware');
 
 // Set view engine and directory
-app.engine('handlebars', exhbs({defaultLayout: 'main', partialsDir: __app + 'views/partials', layoutsDir: __app + 'views/layouts'}));
-app.set('view engine', 'handlebars');
-app.set('views', path.join(__app, 'views'));
+app.engine('mustache', mustacheExpress(__dirname + '/app/views/partials', '.mustache'));
+app.set('views', path.join(__dirname, 'app/views'));
+app.set('view engine', 'mustache');
 
 // Disable caching
 if (__env == 'dev') {

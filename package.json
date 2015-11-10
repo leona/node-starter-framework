@@ -13,7 +13,7 @@
     "async": "latest",
     "morgan": "latest",
     "socket.io": "latest",
-    "express-handlebars": "latest",
+    "mustache-express": "latest",
     "compression": "latest",
     "glob": "latest",
     "node-minify": "latest",
